@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<!-- create navigation bar ( header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+					Login Module</a>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+	<!-- Create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered
+					</div>
+				</div>
+
+				<!-- error message -->
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">Already user exits</div>
+				</div>
+
+				<h1>Registration</h1>
+
+				<form th:action="@{/empRegistration}" method="post"
+					th:object="${employee}">
+					<div class="form-group">
+						<label class="control-label" for="empId"> Employee Id </label> <input
+							id="empId" class="form-control" th:field="*{empId}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="empName"> Employee Name
+						</label> <input id="empName" class="form-control" th:field="*{empName}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="email"> Email </label> <input
+							id="email" class="form-control" th:field="*{email}" required
+							autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="contactNumber"> contact
+							Number </label> <input id="contactNumber" class="form-control"
+							th:field="*{contactNumber}" required autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="address"> Address</label> <input
+							id="address" class="form-control" th:field="*{address}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="designationId">
+							designation Id</label> <input id="designationId" class="form-control"
+							th:field="*{designationId}" required autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="workingExperienceWithCompany">
+							working Experience With Company</label> <input
+							id="workingExperienceWithCompany" class="form-control"
+							th:field="*{workingExperienceWithCompany}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="baseSalary"> Base Salary</label>
+						<input id="baseSalary" class="form-control"
+							th:field="*{baseSalary}" required autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="Bonus"> Bonus</label> <input
+							id="Bonus" class="form-control" th:field="*{Bonus}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="HRA"> HRA</label> <input
+							id="HRA" class="form-control" th:field="*{HRA}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="travelAllowances">
+							Travel Allowances</label> <input id="travelAllowances"
+							class="form-control" th:field="*{travelAllowances}" required
+							autofocus="autofocus" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="medicalAllowances">
+							medical Allowances</label> <input id="medicalAllowances"
+							class="form-control" th:field="*{medicalAllowances}" required
+							autofocus="autofocus" />
+					</div>
+
+
+
+					<div class="form-group">
+						<label class="control-label" for="password"> Password </label> <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Register</button>
+						<br/>
+						<span>Already registered? <a href="/" th:href="@{/Employeelogin}">Login
+								here</a></span> 
+					     <br/>
+						<span>Admin :<a href="/" th:href="@{/Adminlogin}">login here</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

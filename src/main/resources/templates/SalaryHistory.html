@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Employee  Salary History</title>
+		
+		<link rel="stylesheet" 
+			type="text/css" 
+			href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+	</head>
+	
+	<body>
+		
+		<div class="container-fluid">
+		
+			<h3> Previous History</h3>
+			
+			<hr/>
+			<table class="table table-bordered table-striped" id="employeeTable">
+			
+				<thead>
+					<tr>
+						<th>Employee Id</th>
+						<th>Employee Name</th>
+						<th> baseSalary</th>
+						<th> HRA</th>
+						<th> Bonus</th>
+						<th> travelAllowances</th>
+						<th>medicalAllowances</th>
+						<th> Updated By</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="employeeHistory: ${employees}">
+						<td th:text="${employeeHistory.empId}" />
+						<td th:text="${employeeHistory.empName}" />
+						<td th:text="${employeeHistory.baseSalary}" />
+						<td th:text="${employeeHistory.HRA}" />
+						<td th:text="${employeeHistory.Bonus}" />
+						<td th:text="${employeeHistory.travelAllowances}" />
+						<td th:text="${employeeHistory.medicalAllowances}" />
+						<td>Admin</td>
+						
+					</tr>
+				</tbody>
+				
+			</table>
+		</div>
+		
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#employeeTable").DataTable({
+						'aoColumnDefs': [{
+        				'bSortable': false,
+        				'aTargets': [-1] /* 1st one, start by the right */
+    				}]
+				});
+			})
+		</script> -->
+	</body>
+	
+</html>
